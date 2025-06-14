@@ -2,8 +2,8 @@
 
 ✅ 1. Launch EC2 Instance
 
-    - Use Ubuntu as the OS.
-    - Connect to your instance using PowerShell:
+    1. Use Ubuntu as the OS.
+    2. Connect to your instance using PowerShell:
         ssh -i <your-key>.pem ubuntu@<EC2-Public-IP>
 
 🔧 2. Initial Setup
