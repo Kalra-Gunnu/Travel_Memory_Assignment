@@ -1,15 +1,19 @@
 🚀 Deploying a MERN App on AWS EC2 with Load Balancing & Cloudflare Domain
+
 ✅ 1. Launch EC2 Instance
     Use Ubuntu as the OS.
     Connect to your instance using PowerShell:
         ssh -i <your-key>.pem ubuntu@<EC2-Public-IP>
+
 🔧 2. Initial Setup
     Run the following commands:
         sudo apt update
         sudo apt install -y git nodejs npm nginx
+
 📁 3. Clone the Repository
     sudo git clone https://github.com/UnpredictablePrashant/TravelMemory
     cd TravelMemory/backend
+
 ⚙️ 4. Backend Setup
     Create a .env file with:
         DB_URI=<Your-MongoDB-URI>
@@ -18,12 +22,14 @@
         sudo npm install
     Add to package.json under scripts:
         "start": "dotenv -e .env node index.js"
+
 🌐 5. Configure Nginx for Reverse Proxy
     Edit /etc/nginx/sites-enabled/default to redirect traffic from port 80 to 3001:
  
     Then run:
         sudo systemctl reload nginx
         sudo systemctl restart nginx
+        
 ♻️ 6. Run with PM2
     sudo npm install -g pm2
     create ecosystem.config.js manually
