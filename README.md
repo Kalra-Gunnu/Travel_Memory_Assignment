@@ -69,7 +69,20 @@
     ```
 2. create ecosystem.config.js manually
     ```json
-
+    module.exports = {
+        apps: [
+            {
+                name: "backend-app",
+                script: "index.js",
+                watch: false,
+                env: {
+                    NODE_ENV: "production",
+                    PORT: 3001
+                },
+                env.file: ".env",
+            },
+        ],
+    };
     ```
 3. Then start with
     ```bash 
