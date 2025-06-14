@@ -38,6 +38,7 @@
         sudo systemctl restart nginx
 
 ♻️ 6. Run with PM2
+
     sudo npm install -g pm2
     create ecosystem.config.js manually
  
@@ -47,6 +48,7 @@
     http://<EC2-IP>/trip
  
 🧑‍💻 7. Frontend Setup
+
     cd ../frontend
     Create .env:
         REACT_BACKEND_URI=http://<EC2-IP>/trip
@@ -59,28 +61,39 @@
         sudo cp -r build /var/www/travel-frontend
     App now runs at:
         http://<EC2-IP>
+
 ________________________________________
+
 📦 8. Create AMI & Launch More Instances
+
     Create an AMI from this configured instance.
     Launch additional instances using this AMI.
  
 🧭 9. Create Application Load Balancer (ALB)
+
     Add at least 2 Availability Zones.
     Register all EC2 instances in ALB’s target group.
     Add HTTP (80) and HTTPS (443) listeners.
  ____________________________________
+
 🔗 10. Reconfigure Each Instance for ALB
+
     In each instance:
+
         Backend:
             pm2 start ecosystem.config.js
+        
         Frontend:
             Update .env and src/url.js:
                 REACT_BACKEND_URI=http://<ALB-DNS-Name>
+            
         Rebuild:
             sudo npm run build
             sudo cp -r build /var/www/travel-frontend
+        
 ________________________________________
 🌐 11. Domain & Cloudflare Setup
+
     Buy a domain (e.g., from GoDaddy).
     Add domain to Cloudflare.
     Update nameservers on domain provider to Cloudflare’s nameservers.
