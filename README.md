@@ -170,7 +170,7 @@ ________________________________________
 1. Go to:
     ```bash
     https://www.yourdomain.com
-    ```b
+    ```
 ________________________________________
 📝 Notes
 1. Use pm2 save and pm2 startup to ensure PM2 apps run after reboot.
